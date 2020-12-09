@@ -9,9 +9,12 @@ function onInit() {
     // console.log(gCanvas)
     gCtx = gCanvas.getContext('2d')
     // console.log(gCtx)
+
+
+    
 }
 
-// function renderGallery() {
+// function renderCanvas() {
 //     var 
 // }
 
@@ -23,15 +26,22 @@ function onImgGallery() {
 }
 
 function onEditMeme(imgId) {
+    console.log('onEditMeme');
     var elImgContainer = document.querySelector('.gallery-container');
     var elMemesContainer = document.querySelector('.memes-container');
     elImgContainer.style.display = 'none';
     elMemesContainer.style.display = 'block';
 
     drawImg(imgId);
+
+
 }
 
 function onTxtDraw(text) {
     console.log(text);
-    drawText(text, 50, 50);
+    // elInputTxt.onkeyup = function (){
+    //     console.log('elInputTxt=', elInputTxt);
+    //     document.querySelector('.canvas-box').innerHTML = elInputTxt;
+    // }
+    drawText(text, 150, 50);
 }
