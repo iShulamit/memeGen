@@ -14,9 +14,9 @@ var gKeywords = {
 };
 
 var gImgs = [
-    { id: 1, url: '../../meme-imgs (square)/1.jpg', keywords: ['man', 'politician'] },
-    { id: 2, url: '../../meme-imgs (square)/2.jpg', keywords: ['animals'] },
-    { id: 3, url: '../../meme-imgs (square)/3.jpg', keywords: ['animals', 'baby'] },
+    { id: 1, url: '../meme-imgs (square)/1.jpg', keywords: ['man', 'politician'] },
+    { id: 2, url: '../meme-imgs (square)/2.jpg', keywords: ['animals'] },
+    { id: 3, url: '../meme-imgs (square)/3.jpg', keywords: ['animals', 'baby'] },
 ];
 
 var gMeme = {
