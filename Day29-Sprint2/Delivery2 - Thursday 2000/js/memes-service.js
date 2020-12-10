@@ -26,21 +26,19 @@ var gMeme = {
     selectedLineIdx: 0,
     lines: [{
         txt: 'line1',
-        size: 20,
+        size: 16,
         align: 'left',
-        color: 'red',
+        color: 'white',
         x: 50,
         y: 50,
-    },
-    {
-        txt: 'line2',
-        size: 20,
-        align: 'left',
-        color: 'red',
-        x: 100,
-        y: 100,
     }]
 }
+
+// function _getImgId(imgId) {
+//         var img = gImgs.find(function (img) {
+//         return img.id === imgId;
+//     });
+// }
 
 function drawImg(imgId) {
     var img = gImgs.find(function (img) {
@@ -56,28 +54,46 @@ function drawImg(imgId) {
 function updateMemeLine(text) {
     gMeme.lines[gMeme.selectedLineIdx].txt = text;
     renderCanvas();
-} 
+}
+
+function updateAlign(align) {
+    gMeme.lines[gMeme.selectedLineIdx].align = align;
+    renderCanvas();
+}
 
 //CREATE
-function onAddTxtLine();
 
-function drawText(text, x, y) {
-    console.log('line=', text, x, y);
+function addTxtLine() {
+    return gMeme.push(
+        {
+            txt: 'line2',
+            size: 16,
+            align: 'center',
+            color: 'white',
+            x: 100,
+            y: 100,
+        },
+    );
+}
+
+function drawText(line) {
+    //console.log('line=', text, x, y);
+    gCtx.direction = 'ltr'
     gCtx.lineWidth = '1';
     gCtx.strokeStyle = 'black';
-    gCtx.fillStyle = 'white';
+    gCtx.fillStyle = line.color;
     gCtx.font = '40px Impact';
-    gCtx.textAlign = 'center';
+    gCtx.textAlign = line.align;
 
-    gCtx.fillText(text, x, y)
-    gCtx.strokeText(text, x, y)
+    gCtx.fillText(line.txt, line.x, line.y)
+    gCtx.strokeText(line.txt, line.x, line.y)
 
 }
 
 // DELETE
 
 function deleteLine() {
-    
+
     //renderCanvas()
 }
 

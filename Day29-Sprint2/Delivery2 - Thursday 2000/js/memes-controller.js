@@ -7,10 +7,7 @@ function onInit() {
     gCanvas = document.querySelector('.canvas-box')
     // console.log(gCanvas)
     gCtx = gCanvas.getContext('2d')
-     // console.log(gCtx)
-
-
-    
+     // console.log(gCtx)    
 }
 
 function renderCanvas() {
@@ -20,7 +17,7 @@ function renderCanvas() {
     drawImg(gMeme.selectedImgId);
 
     gMeme.lines.forEach(line =>
-        drawText(line.txt, line.x, line.y))
+        drawText(line))
 
 }
 
@@ -47,9 +44,23 @@ function onTxtUpdate(text) {
 }
 
 function onAddTxtLine() {
-    
+    addTxtLine();
+    renderCanvas();
 }
 
 function onDeleteTxt() {
     deleteLine();
+}
+
+function onAlignLeft() {
+    console.log('left');
+    updateAlign('right');
+}
+
+function onAlignRight() {
+    updateAlign('left');
+}
+
+function onAlignCenter() {
+    updateAlign('center');
 }
