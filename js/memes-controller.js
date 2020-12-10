@@ -11,8 +11,6 @@ function onInit() {
 }
 
 function renderCanvas() {
-    //console.log('render');
-    //console.log('gMeme=', gMeme)
     gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
     drawImg(gMeme.selectedImgId);
 
@@ -20,9 +18,23 @@ function renderCanvas() {
         drawText(line))
 
     renderStrokeBtn();
+    renderAlignBtns();
 }
 
+function renderAlignBtns() {
+    var align = gMeme.lines[gMeme.selectedLineIdx].align;
+    var elAlignBtns = document.querySelectorAll('.align');
 
+    elAlignBtns.forEach(button => {
+        if (button.className === 'control align align-' + align) {
+            button.style.border = 'none';
+            button.style.background = 'linear-gradient(rgb(165, 174, 177),rgb(215, 232, 237)';
+        } else {
+            button.style.border = '1px solid black';
+            button.style.background = 'linear-gradient(rgb(215, 232, 237), rgb(165, 174, 177))';
+        }
+    });
+}
 
 function renderStrokeBtn() {
     var elToggleStrokeBtn = document.querySelector('.txt-stroke');
@@ -67,12 +79,12 @@ function onDeleteTxt() {
 }
 
 function onAlignLeft() {
-    console.log('left');
-    updateAlign('right');
+    //console.log('left');
+    updateAlign('left');
 }
 
 function onAlignRight() {
-    updateAlign('left');
+    updateAlign('right');
 }
 
 function onAlignCenter() {

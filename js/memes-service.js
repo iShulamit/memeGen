@@ -96,6 +96,7 @@ function drawText(line) {
     gCtx.lineWidth = '1';
     gCtx.fillStyle = line.color;
     gCtx.font = line.size + 'px Impact';
+    var align = 'center';
     gCtx.textAlign = line.align;
     gCtx.fillText(line.txt, line.x, line.y)
 
