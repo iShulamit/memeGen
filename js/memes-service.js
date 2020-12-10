@@ -16,9 +16,9 @@ var gKeywords = {
 };
 
 var gImgs = [
-    { id: 1, url: '../meme-imgs (square)/1.jpg', keywords: ['man', 'politician'] },
-    { id: 2, url: '../meme-imgs (square)/2.jpg', keywords: ['animals'] },
-    { id: 3, url: '../meme-imgs (square)/3.jpg', keywords: ['animals', 'baby'] },
+    { id: 1, url: './meme-imgs (square)/1.jpg', keywords: ['man', 'politician'] },
+    { id: 2, url: './meme-imgs (square)/2.jpg', keywords: ['animals'] },
+    { id: 3, url: './meme-imgs (square)/3.jpg', keywords: ['animals', 'baby'] },
 ];
 
 var gMeme = {
@@ -31,6 +31,7 @@ var gMeme = {
         color: 'white',
         x: 50,
         y: 50,
+        isLineStroke: true,
     }]
 }
 
@@ -61,10 +62,11 @@ function updateAlign(align) {
     renderCanvas();
 }
 
-function changeFontSize(fontSizeDif){
+function changeFontSize(fontSizeDif) {
     gMeme.lines[gMeme.selectedLineIdx].size += fontSizeDif;
     renderCanvas();
 }
+
 
 //CREATE
 
@@ -77,21 +79,30 @@ function addTxtLine() {
             color: 'white',
             x: 100,
             y: 100,
+            isLineStroke: true,
         },
     );
+}
+
+function toggleTxtStroke() {
+    var line = gMeme.lines[gMeme.selectedLineIdx];
+    line.isLineStroke = !line.isLineStroke;
+    renderCanvas();
 }
 
 function drawText(line) {
     //console.log('line=', text, x, y);
     gCtx.direction = 'ltr'
     gCtx.lineWidth = '1';
-    gCtx.strokeStyle = 'black';
     gCtx.fillStyle = line.color;
     gCtx.font = line.size + 'px Impact';
     gCtx.textAlign = line.align;
     gCtx.fillText(line.txt, line.x, line.y)
-    gCtx.strokeText(line.txt, line.x, line.y)
 
+    if (line.isLineStroke) {
+        gCtx.strokeStyle = 'black';
+        gCtx.strokeText(line.txt, line.x, line.y)
+    }
 }
 
 // DELETE

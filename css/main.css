@@ -11,6 +11,7 @@
 
 body {
     margin: 0 auto;
+    /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ; */
 }
 
 button:hover, .img:hover, img.control:hover {
@@ -97,8 +98,10 @@ img.control {
     height: 30px;
     width: 30px;
     padding: 5px;
-    background-color: rgb(215, 232, 237);
+    background-image: linear-gradient(rgb(215, 232, 237), rgb(165, 174, 177)); 
     border: 1px solid black;
+    border-radius: 5px;
+
 }
 
 input.input {

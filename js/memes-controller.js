@@ -7,7 +7,7 @@ function onInit() {
     gCanvas = document.querySelector('.canvas-box')
     // console.log(gCanvas)
     gCtx = gCanvas.getContext('2d')
-     // console.log(gCtx)    
+    // console.log(gCtx)    
 }
 
 function renderCanvas() {
@@ -19,6 +19,20 @@ function renderCanvas() {
     gMeme.lines.forEach(line =>
         drawText(line))
 
+    renderStrokeBtn();
+}
+
+
+
+function renderStrokeBtn() {
+    var elToggleStrokeBtn = document.querySelector('.txt-stroke');
+    if (gMeme.lines[gMeme.selectedLineIdx].isLineStroke) {
+        elToggleStrokeBtn.style.border = '1px solid black';
+        elToggleStrokeBtn.style.background = 'linear-gradient(rgb(215, 232, 237), rgb(165, 174, 177))';
+    } else {
+        elToggleStrokeBtn.style.border = 'none';
+        elToggleStrokeBtn.style.background = 'linear-gradient(rgb(165, 174, 177),rgb(215, 232, 237)';
+    }
 }
 
 function onImgGallery() {
@@ -73,6 +87,6 @@ function onDecFont() {
     changeFontSize(-2);
 }
 
-function onTxtStroke(){
+function onTxtStroke() {
     toggleTxtStroke();
 }
