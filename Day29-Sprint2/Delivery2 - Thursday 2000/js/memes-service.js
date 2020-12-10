@@ -26,7 +26,7 @@ var gMeme = {
     selectedLineIdx: 0,
     lines: [{
         txt: 'line1',
-        size: 16,
+        size: 32,
         align: 'left',
         color: 'white',
         x: 50,
@@ -61,6 +61,11 @@ function updateAlign(align) {
     renderCanvas();
 }
 
+function changeFontSize(fontSizeDif){
+    gMeme.lines[gMeme.selectedLineIdx].size += fontSizeDif;
+    renderCanvas();
+}
+
 //CREATE
 
 function addTxtLine() {
@@ -82,9 +87,8 @@ function drawText(line) {
     gCtx.lineWidth = '1';
     gCtx.strokeStyle = 'black';
     gCtx.fillStyle = line.color;
-    gCtx.font = '40px Impact';
+    gCtx.font = line.size + 'px Impact';
     gCtx.textAlign = line.align;
-
     gCtx.fillText(line.txt, line.x, line.y)
     gCtx.strokeText(line.txt, line.x, line.y)
 
@@ -98,8 +102,6 @@ function deleteLine() {
 }
 
 
-
-// READ
 
 
 // function _saveMemesToStorage() {

@@ -64,3 +64,11 @@ function onAlignRight() {
 function onAlignCenter() {
     updateAlign('center');
 }
+
+function onIncFont() {
+    changeFontSize(2);
+}
+
+function onDecFont() {
+    changeFontSize(-2);
+}

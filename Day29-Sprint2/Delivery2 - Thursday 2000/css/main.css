@@ -13,7 +13,7 @@ body {
     margin: 0 auto;
 }
 
-button:hover, .img:hover {
+button:hover, .img:hover, img.control:hover {
     cursor: pointer;  
 }
     
@@ -40,7 +40,6 @@ img.logo {
     height: 700px;
     background-color: lightskyblue;
     display: none;
-
 }
 
 
