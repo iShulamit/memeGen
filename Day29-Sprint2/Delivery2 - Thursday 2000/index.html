@@ -21,7 +21,7 @@
     <div class="gallery-container">
         <h2>Gallery</h2>
         <div class="search-container">
-            <input type="search" name="search">
+            <input type="search" name="search" >
             <button class="search-meme" onclick="onSearchMeme()">search</button>
         </div>
         <div class="grid-container">
@@ -42,14 +42,14 @@
         </div>
         <div class="control-box-container">
             <div class="control-box">
-                <input class="control input" type="txt" name="meme-txt" onkeyup="onTxtDraw(this.value)">
+                <input class="control input" type="txt" name="meme-txt" onkeyup="onTxtUpdate(this.value)" placeholder="Enter text">
 
                 <img class="control up-down-arrows"
                     src="../DESIGN/Meme1 - Sergei/ICONS/up-and-down-opposite-double-arrows-side-by-side.png"
                     onclick="onToggleRow()" />
                 <img class="control add-line" src="../DESIGN/Meme1 - Sergei/ICONS/add.png" onclick="onAddTxt()" />
                 <img class="control delete-line" src="../DESIGN/Meme1 - Sergei/ICONS/trash.png"
-                    onclick="onDelete()" />
+                    onclick="onDeleteTxt()" />
                 <img class="control increase-font" src="../DESIGN/Meme1 - Sergei/ICONS/increase font - icon.png"
                     onclick="onIncFont()" />
                 <img class="control decrease-font" src="../DESIGN/Meme1 - Sergei/ICONS/decrease font - icon.png"

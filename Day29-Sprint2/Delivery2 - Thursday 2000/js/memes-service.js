@@ -1,6 +1,8 @@
 'use strict';
 
 const KEY = 'memes';
+var gCanvas;
+var gCtx;
 
 console.log('service js is connected');
 
@@ -23,10 +25,20 @@ var gMeme = {
     selectedImgId: 1,
     selectedLineIdx: 0,
     lines: [{
-        txt: 'I never eat Falafel',
+        txt: 'line1',
         size: 20,
         align: 'left',
         color: 'red',
+        x: 50,
+        y: 50,
+    },
+    {
+        txt: 'line2',
+        size: 20,
+        align: 'left',
+        color: 'red',
+        x: 100,
+        y: 100,
     }]
 }
 
@@ -40,24 +52,39 @@ function drawImg(imgId) {
     gCtx.drawImage(drawnImg, 0, 0, gCanvas.width, gCanvas.height);
 }
 
+// UPDATE
+function updateMemeLine(text) {
+    gMeme.lines[gMeme.selectedLineIdx].txt = text;
+    renderCanvas();
+} 
+
+//CREATE
+function onAddTxtLine();
+
 function drawText(text, x, y) {
-    gCtx.lineWidth = '1.5'
-    gCtx.strokeStyle = 'black'
-    gCtx.fillStyle = 'white'
-     gCtx.font = '40px Impact'
-    //gCtx.font = 'italic small-caps 900 40px serif'
-    gCtx.textAlign = 'center'
+    console.log('line=', text, x, y);
+    gCtx.lineWidth = '1';
+    gCtx.strokeStyle = 'black';
+    gCtx.fillStyle = 'white';
+    gCtx.font = '40px Impact';
+    gCtx.textAlign = 'center';
+
     gCtx.fillText(text, x, y)
     gCtx.strokeText(text, x, y)
+
 }
 
 // DELETE
 
-// UPDATE ?
+function deleteLine() {
+    
+    //renderCanvas()
+}
+
+
 
 // READ
 
-//CREATE
 
 // function _saveMemesToStorage() {
 //     saveToStorage(KEY, gMemes)
