@@ -72,3 +72,7 @@ function onIncFont() {
 function onDecFont() {
     changeFontSize(-2);
 }
+
+function onTxtStroke(){
+    toggleTxtStroke();
+}
