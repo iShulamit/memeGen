@@ -29,8 +29,8 @@ var gMeme = {
         size: 32,
         align: 'left',
         color: 'white',
-        x: 50,
-        y: 50,
+        x: 12.5,
+        y: 30,
         isLineStroke: true,
     }]
 }
@@ -75,22 +75,37 @@ function changeTxtColor(elColor) {
 //CREATE
 
 function addLine() {
-    _createNewLine();
+    var line = _createNewLine();
+    setNewLineLocation(line);
+    gMeme.lines.push(line);
     gMeme.selectedLineIdx = gMeme.lines.length - 1;
 }
 
 function _createNewLine() {
-    gMeme.lines.push(
-        {
-            txt: '',
-            size: 32,
-            align: 'center',
-            color: 'white',
-            x: 100,
-            y: 100,
-            isLineStroke: true,
-        },
-    );
+    return {
+        txt: '',
+        size: 32,
+        align: 'center',
+        color: 'white',
+        x: 100,
+        y: 100,
+        isLineStroke: true,
+    }
+}
+
+function setNewLineLocation(line) {
+    if (gMeme.lines.length === 0) {
+        line.x = 12.5;
+        line.y = 30;
+        //gCtx.width = offset.innerWidth / 2;
+        //gCtx.height = offset.innerHeight / 2;
+    } else if (gMeme.lines.length === 1) {
+        line.x = 225;
+        line.y = 125;
+    } else {
+        line.x = 125;
+        line.y = 125;
+    }
 }
 
 // DELETE
@@ -112,7 +127,10 @@ function toggleTxtStroke() {
 }
 
 function drawText(line) {
-    //console.log('line=', text, x, y);
+    //console.log('line=', line.txt, line.x, line.y);
+    //gCtx.width = window.innerWidth / 2;
+    //gCtx.height = window.innerWidth / 2;
+
     gCtx.direction = 'ltr'
     gCtx.lineWidth = '2.5';
     gCtx.fillStyle = line.color;
