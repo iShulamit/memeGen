@@ -69,11 +69,6 @@ function onTxtUpdate(text) {
     updateMemeLine(text);
 }
 
-function onAddTxtLine() {
-    addTxtLine();
-    renderCanvas();
-}
-
 function onDeleteTxt() {
     deleteLine();
 }
@@ -115,4 +110,9 @@ function onTxtColor() {
 function onChangeColor() {
     var elColor = document.querySelector('.change-color').value;
     changeTxtColor(elColor);
+}
+
+function onAddTxtLine() {
+    document.querySelector('.input').value = '';
+    addLine();
 }

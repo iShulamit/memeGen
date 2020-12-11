@@ -74,11 +74,16 @@ function changeTxtColor(elColor) {
 
 //CREATE
 
-function addTxtLine() {
-    return gMeme.push(
+function addLine() {
+    _createNewLine();
+    gMeme.selectedLineIdx = gMeme.lines.length - 1;
+}
+
+function _createNewLine() {
+    gMeme.lines.push(
         {
             txt: 'line2',
-            size: 16,
+            size: 32,
             align: 'center',
             color: 'white',
             x: 100,
@@ -97,7 +102,7 @@ function toggleTxtStroke() {
 function drawText(line) {
     //console.log('line=', text, x, y);
     gCtx.direction = 'ltr'
-    gCtx.lineWidth = '1';
+    gCtx.lineWidth = '2.5';
     gCtx.fillStyle = line.color;
     gCtx.font = line.size + 'px Impact';
     var align = 'center';
