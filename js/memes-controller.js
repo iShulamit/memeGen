@@ -114,7 +114,5 @@ function onTxtColor() {
 
 function onChangeColor() {
     var elColor = document.querySelector('.change-color').value;
-
-    console.log('elColor=', elColor);
     changeTxtColor(elColor);
 }
