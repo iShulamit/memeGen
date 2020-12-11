@@ -116,3 +116,8 @@ function onAddTxtLine() {
     document.querySelector('.input').value = '';
     addLine();
 }
+
+function onDeleteTxt() {
+    document.querySelector('.input').value = '';
+    deleteLine();
+}

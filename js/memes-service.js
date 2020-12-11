@@ -25,7 +25,7 @@ var gMeme = {
     selectedImgId: 1,
     selectedLineIdx: 0,
     lines: [{
-        txt: 'enter txt',
+        txt: '',
         size: 32,
         align: 'left',
         color: 'white',
@@ -82,7 +82,7 @@ function addLine() {
 function _createNewLine() {
     gMeme.lines.push(
         {
-            txt: 'line2',
+            txt: '',
             size: 32,
             align: 'center',
             color: 'white',
@@ -91,6 +91,18 @@ function _createNewLine() {
             isLineStroke: true,
         },
     );
+}
+
+// DELETE
+
+function deleteLine() {
+    gMeme.lines.splice(gMeme.selectedLineIdx, 1);
+    if (gMeme.selectedLineIdx > 0) {
+        gMeme.selectedLineIdx -= 1;
+    } else {
+        _createNewLine();
+    }
+    renderCanvas();
 }
 
 function toggleTxtStroke() {
@@ -114,15 +126,6 @@ function drawText(line) {
         gCtx.strokeText(line.txt, line.x, line.y)
     }
 }
-
-// DELETE
-
-function deleteLine() {
-
-    //renderCanvas()
-}
-
-
 
 
 // function _saveMemesToStorage() {
