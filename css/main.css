@@ -14,7 +14,7 @@ body {
     /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ; */
 }
 
-button:hover, .img:hover, img.control:hover {
+button:hover, .img:hover, img.control:hover, input.change-color:hover {
     cursor: pointer;  
 }
     
@@ -94,14 +94,23 @@ canvas {
     gap: 8px;
 }
 
-img.control {
+/* input.change-color {
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+} */
+
+img.control, input.change-color {
     height: 30px;
     width: 30px;
     padding: 5px;
     background-image: linear-gradient(rgb(215, 232, 237), rgb(165, 174, 177)); 
     border: 1px solid black;
     border-radius: 5px;
+}
 
+img.control.txt-color {
+    display: block;
 }
 
 input.input {
@@ -145,7 +154,7 @@ img.txt-stroke {
     grid-column: 4 / 5;
     grid-row: 4 / 5; 
 }
-img.txt-color {
+img.txt-color, input.change-color {
     grid-column: 5 / 6;
     grid-row: 4 / 5; 
 }

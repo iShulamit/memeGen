@@ -102,3 +102,19 @@ function onDecFont() {
 function onTxtStroke() {
     toggleTxtStroke();
 }
+
+function onTxtColor() {
+    console.log('color picker');
+    var elColorPickerBtn = document.querySelector('.change-color');
+    elColorPickerBtn.style.display = 'block'
+
+    var elColorPalleteBtn = document.querySelector('.txt-color');
+    elColorPalleteBtn.style.display = 'none';
+}
+
+function onChangeColor() {
+    var elColor = document.querySelector('.change-color').value;
+
+    console.log('elColor=', elColor);
+    changeTxtColor(elColor);
+}

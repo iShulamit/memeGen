@@ -25,7 +25,7 @@ var gMeme = {
     selectedImgId: 1,
     selectedLineIdx: 0,
     lines: [{
-        txt: 'line1',
+        txt: 'enter txt',
         size: 32,
         align: 'left',
         color: 'white',
@@ -67,6 +67,10 @@ function changeFontSize(fontSizeDif) {
     renderCanvas();
 }
 
+function changeTxtColor(elColor) {
+    gMeme.lines[gMeme.selectedLineIdx].color = elColor;
+    renderCanvas();
+}
 
 //CREATE
 
