@@ -109,8 +109,9 @@ function deleteLine() {
     gMeme.lines.splice(gMeme.selectedLineIdx, 1);
     if (gMeme.selectedLineIdx > 0) {
         gMeme.selectedLineIdx -= 1;
-    } else {
-        _createNewLine();
+    }
+    if (gMeme.lines.length === 0) {
+        addLine();
     }
     renderCanvas();
 }
@@ -151,6 +152,9 @@ function drawText(line) {
     }
 }
 
+function moveToNextRow() {
+    gMeme.selectedLineIdx = (gMeme.selectedLineIdx + 1) % gMeme.lines.length;
+}
 
 // function _saveMemesToStorage() {
 //     saveToStorage(KEY, gMemes)

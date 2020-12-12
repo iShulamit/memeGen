@@ -122,4 +122,15 @@ function onAddTxtLine() {
 function onDeleteTxt() {
     document.querySelector('.input').value = '';
     deleteLine();
+    onNextRow();
+}
+
+function onNextRow() {
+    moveToNextRow();
+    showInputTxtRow();
+}
+
+function showInputTxtRow() {
+    var elRowInput =  document.querySelector('.input');
+    elRowInput.value = gMeme.lines[gMeme.selectedLineIdx].txt;
 }
