@@ -6,6 +6,7 @@ var gCtx;
 
 const X_LINE_DEFAULT = 0.1;
 const Y_LINE_DEFAULT = 0.07;
+const MOVE_LINE_STEP = 0.1;
 
 console.log('service js is connected');
 
@@ -34,12 +35,6 @@ function initGmeme(imgId) {
     }
     addLine();
 }
-
-// function _getImgId(imgId) {
-//         var img = gImgs.find(function (img) {
-//         return img.id === imgId;
-//     });
-// }
 
 function drawImg(imgId) {
     var img = gImgs.find(function (img) {
@@ -93,14 +88,24 @@ function _createNewLine() {
     }
 }
 
+
+
 function setNewLineLocation(line) {
     if (gMeme.lines.length === 0) {
-        line.y = Y_LINE_DEFAULT * gCanvas.height;
+        line.y = getMinYLocation();
     } else if (gMeme.lines.length === 1) {
-        line.y = ((1 - Y_LINE_DEFAULT) * gCanvas.height);
+        line.y = getMaxYLocation();
     } else {
         line.y = gCanvas.height / 2;
     }
+}
+
+function getMaxYLocation() {
+    return ((1 - Y_LINE_DEFAULT) * gCanvas.height);
+}
+
+function getMinYLocation() {
+    return Y_LINE_DEFAULT * gCanvas.height;
 }
 
 // DELETE
@@ -154,6 +159,16 @@ function drawText(line) {
 
 function moveToNextRow() {
     gMeme.selectedLineIdx = (gMeme.selectedLineIdx + 1) % gMeme.lines.length;
+}
+
+function moveLine(step) {
+    gMeme.lines[gMeme.selectedLineIdx].y += step * gCanvas.height;
+    if (gMeme.lines[gMeme.selectedLineIdx].y < getMinYLocation()) {
+        gMeme.lines[gMeme.selectedLineIdx].y = getMinYLocation();
+    } else if (gMeme.lines[gMeme.selectedLineIdx].y > getMaxYLocation()) {
+        gMeme.lines[gMeme.selectedLineIdx].y = getMaxYLocation();
+    }
+    renderCanvas();
 }
 
 // function _saveMemesToStorage() {

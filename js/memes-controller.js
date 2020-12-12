@@ -9,7 +9,7 @@ function onInit() {
     gCtx = gCanvas.getContext('2d')
     // console.log(gCtx)  
     gCanvas.width = 450;
-    gCanvas.height = 450; 
+    gCanvas.height = 450;
 }
 
 function renderCanvas() {
@@ -131,6 +131,19 @@ function onNextRow() {
 }
 
 function showInputTxtRow() {
-    var elRowInput =  document.querySelector('.input');
+    var elRowInput = document.querySelector('.input');
     elRowInput.value = gMeme.lines[gMeme.selectedLineIdx].txt;
+}
+
+function onDownloadImg(el) {
+    var image = gCanvas.toDataURL("image/jpg");
+    el.href = image;
+}
+
+function onMoveLineUp() {
+    moveLine(-MOVE_LINE_STEP);
+}
+
+function onMoveLineDown() {
+    moveLine(MOVE_LINE_STEP);
 }

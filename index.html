@@ -45,6 +45,8 @@
                     <input class="control input" type="txt" name="meme-txt" onkeyup="onTxtUpdate(this.value)"
                         placeholder="Enter text">
 
+                    <button class="control line-up" onclick="onMoveLineUp()">↑</button>
+                    <button class="control line-down" onclick="onMoveLineDown()">↓</button>
                     <img class="control up-down-arrows"
                         src="./DESIGN/Meme1 - Sergei/ICONS/up-and-down-opposite-double-arrows-side-by-side.png"
                         onclick="onNextRow()" />
@@ -67,7 +69,9 @@
                     <input type="color" class="color change-color" value="#FFFFFF" oninput="onChangeColor()"><img
                         class="control txt-color" src="./DESIGN/Meme1 - Sergei/ICONS/paint-board-and-brush.png"
                         onmouseover="onTxtColor()" />
+                    <a href="#" class="download-meme" onclick="onDownloadImg(this)" download="myMeme.jpg"> Download </a>
                 </div>
+
             </div>
         </div>
     </div>
