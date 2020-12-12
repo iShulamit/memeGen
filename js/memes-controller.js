@@ -102,7 +102,6 @@ function onTxtStroke() {
 }
 
 function onTxtColor() {
-    console.log('color picker');
     var elColorPickerBtn = document.querySelector('.change-color');
     elColorPickerBtn.style.display = 'block'
 

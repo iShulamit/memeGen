@@ -95,16 +95,12 @@ function _createNewLine() {
 
 function setNewLineLocation(line) {
     if (gMeme.lines.length === 0) {
-        line.x = X_LINE_DEFAULT * gCanvas.width; 
         line.y = Y_LINE_DEFAULT * gCanvas.height;
     } else if (gMeme.lines.length === 1) {
-        line.x = X_LINE_DEFAULT * gCanvas.width;
         line.y = ((1 - Y_LINE_DEFAULT) * gCanvas.height);
     } else {
-        line.x = X_LINE_DEFAULT * gCanvas.height;
-        line.y = gCanvas.height / 2 ;
+        line.y = gCanvas.height / 2;
     }
-    //console.log('line.x=' + line.x + ' line.y=' + line.y + ' gCanvs.width=' + gCanvas.width)
 }
 
 // DELETE
@@ -126,22 +122,32 @@ function toggleTxtStroke() {
 }
 
 function drawText(line) {
-    //console.log('x=',line.x, ' y=' ,line.y);
-    // gCtx.width = window.innerWidth;
-    // gCtx.height = window.innerHeight;
-    console.log(gCtx.width, gCtx.height);
+    //console.log(gCtx.width, gCtx.height);
     gCtx.direction = 'ltr';
     gCtx.lineWidth = '2.5';
     gCtx.fillStyle = line.color;
     gCtx.font = line.size + 'px Impact';
-    
     var align = 'center';
     gCtx.textAlign = line.align;
-    gCtx.fillText(line.txt, line.x, line.y)
 
+    switch (line.align) {
+        case 'left':
+            line.x = gCanvas.width * X_LINE_DEFAULT;
+            break;
+        case 'center':
+            line.x = gCanvas.width / 2;
+            break;
+        case 'right':
+            line.x = gCanvas.width * (1 - X_LINE_DEFAULT);
+            break;
+        default:
+            break;
+    }
+
+    gCtx.fillText(line.txt, line.x, line.y)
     if (line.isLineStroke) {
         gCtx.strokeStyle = 'black';
-        gCtx.strokeText(line.txt, line.x, line.y)
+        gCtx.strokeText(line.txt, line.x, line.y, gCanvas.width * (1 - (2 * X_LINE_DEFAULT)))
     }
 }
 
