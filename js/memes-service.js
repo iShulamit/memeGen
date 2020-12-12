@@ -143,7 +143,6 @@ function drawText(line) {
     gCtx.lineWidth = '2';
     gCtx.fillStyle = line.color;
     gCtx.font = line.size + 'px Impact';
-    var align = 'center';
     gCtx.textAlign = line.align;
 
     switch (line.align) {
