@@ -5,11 +5,18 @@ console.log('controller js is connected');
 
 function onInit() {
     gCanvas = document.querySelector('.canvas-box')
-    // console.log(gCanvas)
     gCtx = gCanvas.getContext('2d')
-    // console.log(gCtx)  
     gCanvas.width = 450;
     gCanvas.height = 450;
+    renderGalleryGrid();
+}
+
+function renderGalleryGrid() {
+    var elGrid = document.querySelector('.grid-container');
+    console.log(gImgs);
+    elGrid.innerHTML = gImgs.map(img => {
+        return `<img src="${img.url}" onclick="onEditMeme(${img.id})" class="img img${img.id}" />`
+    }).join('\n');
 }
 
 function renderCanvas() {
