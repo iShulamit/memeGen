@@ -71,55 +71,48 @@ button.pic-gallery, button.edit-meme {
     display: none;
 }
 
+.meme-editor {
+    display: grid;
+    grid-template-columns: repeat(2, 500px);
+    grid-row: 500px;
+    gap: 10px;
+}
 
+.canvas-container {
+    grid-column: 1 / 2;
+}
 
-
-
-
-
-
+.control-box-container {
+    grid-column: 2 / 3;
+    align-self: center;
+}
 
 
 /* CANVAS */
 
-/* .canvas-container {
-    display: inline;
-    flex-direction: column;
-} */
-
 canvas {
     background-color: burlywood;
     margin: 20px;
-    height: 250px;
-    width: 250px;
+    height: 450px;
+    width: 450px;
     border: 1px solid black;
 }
 
 /* CONTROL BOX */
 
-.control-box-container {
-    display: flex;
-}
-
 .control-box {
     margin: 20px;
     display: grid;
-    grid-template-columns: repeat(5, 30px);
-    grid-template-rows: repeat(5, 30px);
+    grid-template-columns: repeat(5, 50px);
+    grid-template-rows: repeat(5, 50px);
     text-align: center;
-    gap: 8px;
+    gap: 15px;
 }
 
-/* input.change-color {
-    position: absolute;
-    z-index: 1;
-    opacity: 0;
-} */
-
 img.control, input.change-color {
-    height: 30px;
-    width: 30px;
-    padding: 5px;
+    height: 50px;
+    width: 50px;
+    padding: 8px;
     background-image: linear-gradient(rgb(215, 232, 237), rgb(165, 174, 177));
     border: 1px solid black;
     border-radius: 5px;
