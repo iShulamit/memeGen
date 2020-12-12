@@ -29,11 +29,10 @@ img.logo {
     margin: 20px 250px 20px 50px;
 }
 
-button.pic-gallery /* button.edit-meme */ {
+button.pic-gallery {
     background-color: #ff7f00;
     color: white;
     border: none;
-    /* border-right: 1px solid white; */
     height: 100px;
     padding: 0 25px;
     font-size: large;
@@ -59,7 +58,6 @@ button.pic-gallery /* button.edit-meme */ {
 .grid-container {
     margin: 0 50px;
     display: grid;
-    /* justify-content: center; */
     grid-template-columns: repeat( auto-fit, minmax(200px, 200px));
     grid-template-rows: repeat(2, 200px);
     gap: 10px;
@@ -68,7 +66,6 @@ button.pic-gallery /* button.edit-meme */ {
 /* MEME EDIT */
 
 .memes-container {
-    /* height: 700px; */
     display: none;
 }
 

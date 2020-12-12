@@ -64,7 +64,6 @@ function onImgGallery() {
 }
 
 function onEditMeme(imgId) {
-    // console.log('onEditMeme');
     var elImgContainer = document.querySelector('.gallery-container');
     var elMemesContainer = document.querySelector('.memes-container');
     elImgContainer.style.display = 'none';
@@ -75,7 +74,6 @@ function onEditMeme(imgId) {
 }
 
 function onTxtUpdate(text) {
-    // console.log(text);
     updateMemeLine(text);
 }
 
@@ -84,7 +82,6 @@ function onDeleteTxt() {
 }
 
 function onAlignLeft() {
-    //console.log('left');
     updateAlign('left');
 }
 

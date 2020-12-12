@@ -83,7 +83,6 @@ function changeTxtColor(elColor) {
 }
 
 //CREATE
-
 function addLine() {
     var line = _createNewLine();
     setNewLineLocation(line);
@@ -102,8 +101,6 @@ function _createNewLine() {
         isLineStroke: true,
     }
 }
-
-
 
 function setNewLineLocation(line) {
     if (gMeme.lines.length === 0) {
@@ -124,7 +121,6 @@ function getMinYLocation() {
 }
 
 // DELETE
-
 function deleteLine() {
     gMeme.lines.splice(gMeme.selectedLineIdx, 1);
     if (gMeme.selectedLineIdx > 0) {
@@ -143,7 +139,6 @@ function toggleTxtStroke() {
 }
 
 function drawText(line) {
-    //console.log(gCtx.width, gCtx.height);
     gCtx.direction = 'ltr';
     gCtx.lineWidth = '2.5';
     gCtx.fillStyle = line.color;
