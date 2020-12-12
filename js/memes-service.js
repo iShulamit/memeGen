@@ -8,8 +8,6 @@ const X_LINE_DEFAULT = 0.1;
 const Y_LINE_DEFAULT = 0.07;
 const MOVE_LINE_STEP = 0.1;
 
-console.log('service js is connected');
-
 var gKeywords = {
     'happy': 12,
     'funny': 1,

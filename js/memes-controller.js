@@ -1,8 +1,5 @@
 'use strict';
 
-console.log('controller js is connected');
-
-
 function onInit() {
     gCanvas = document.querySelector('.canvas-box')
     gCtx = gCanvas.getContext('2d')
