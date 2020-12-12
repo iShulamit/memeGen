@@ -4,6 +4,9 @@ const KEY = 'memes';
 var gCanvas;
 var gCtx;
 
+const X_LINE_DEFAULT = 12.5;
+const Y_LINE_DEFAULT = 30;
+
 console.log('service js is connected');
 
 var gKeywords = {
@@ -24,15 +27,9 @@ var gImgs = [
 var gMeme = {
     selectedImgId: 1,
     selectedLineIdx: 0,
-    lines: [{
-        txt: '',
-        size: 32,
-        align: 'left',
-        color: 'white',
-        x: 12.5,
-        y: 30,
-        isLineStroke: true,
-    }]
+    lines: [
+        _createNewLine()
+    ]
 }
 
 // function _getImgId(imgId) {
