@@ -7,7 +7,9 @@ function onInit() {
     gCanvas = document.querySelector('.canvas-box')
     // console.log(gCanvas)
     gCtx = gCanvas.getContext('2d')
-    // console.log(gCtx)    
+    // console.log(gCtx)  
+    gCanvas.width = 450;
+    gCanvas.height = 450; 
 }
 
 function renderCanvas() {

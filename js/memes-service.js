@@ -4,8 +4,8 @@ const KEY = 'memes';
 var gCanvas;
 var gCtx;
 
-const X_LINE_DEFAULT = 12.5;
-const Y_LINE_DEFAULT = 30;
+const X_LINE_DEFAULT = 0.1;
+const Y_LINE_DEFAULT = 0.07;
 
 console.log('service js is connected');
 
@@ -30,8 +30,7 @@ function initGmeme(imgId) {
     gMeme = {
         selectedImgId: imgId,
         selectedLineIdx: 0,
-        lines: [
-        ]
+        lines: []
     }
     addLine();
 }
@@ -96,17 +95,16 @@ function _createNewLine() {
 
 function setNewLineLocation(line) {
     if (gMeme.lines.length === 0) {
-        line.x = 12.5;
-        line.y = 30;
-        //gCtx.width = offset.innerWidth / 2;
-        //gCtx.height = offset.innerHeight / 2;
+        line.x = X_LINE_DEFAULT * gCanvas.width; 
+        line.y = Y_LINE_DEFAULT * gCanvas.height;
     } else if (gMeme.lines.length === 1) {
-        line.x = 225;
-        line.y = 125;
+        line.x = X_LINE_DEFAULT * gCanvas.width;
+        line.y = ((1 - Y_LINE_DEFAULT) * gCanvas.height);
     } else {
-        line.x = 125;
-        line.y = 125;
+        line.x = X_LINE_DEFAULT * gCanvas.height;
+        line.y = gCanvas.height / 2 ;
     }
+    //console.log('line.x=' + line.x + ' line.y=' + line.y + ' gCanvs.width=' + gCanvas.width)
 }
 
 // DELETE
@@ -128,14 +126,15 @@ function toggleTxtStroke() {
 }
 
 function drawText(line) {
-    //console.log('line=', line.txt, line.x, line.y);
-    //gCtx.width = window.innerWidth / 2;
-    //gCtx.height = window.innerWidth / 2;
-
-    gCtx.direction = 'ltr'
+    //console.log('x=',line.x, ' y=' ,line.y);
+    // gCtx.width = window.innerWidth;
+    // gCtx.height = window.innerHeight;
+    console.log(gCtx.width, gCtx.height);
+    gCtx.direction = 'ltr';
     gCtx.lineWidth = '2.5';
     gCtx.fillStyle = line.color;
     gCtx.font = line.size + 'px Impact';
+    
     var align = 'center';
     gCtx.textAlign = line.align;
     gCtx.fillText(line.txt, line.x, line.y)
