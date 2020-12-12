@@ -13,7 +13,6 @@ function onInit() {
 
 function renderGalleryGrid() {
     var elGrid = document.querySelector('.grid-container');
-    console.log(gImgs);
     elGrid.innerHTML = gImgs.map(img => {
         return `<img src="${img.url}" onclick="onEditMeme(${img.id})" class="img img${img.id}" />`
     }).join('\n');

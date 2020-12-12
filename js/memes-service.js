@@ -140,7 +140,7 @@ function toggleTxtStroke() {
 
 function drawText(line) {
     gCtx.direction = 'ltr';
-    gCtx.lineWidth = '2.5';
+    gCtx.lineWidth = '2';
     gCtx.fillStyle = line.color;
     gCtx.font = line.size + 'px Impact';
     var align = 'center';
