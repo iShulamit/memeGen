@@ -24,12 +24,16 @@ var gImgs = [
     { id: 3, url: './meme-imgs (square)/3.jpg', keywords: ['animals', 'baby'] },
 ];
 
-var gMeme = {
-    selectedImgId: 1,
-    selectedLineIdx: 0,
-    lines: [
-        _createNewLine()
-    ]
+var gMeme;
+
+function initGmeme(imgId) {
+    gMeme = {
+        selectedImgId: imgId,
+        selectedLineIdx: 0,
+        lines: [
+        ]
+    }
+    addLine();
 }
 
 // function _getImgId(imgId) {

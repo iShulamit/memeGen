@@ -61,6 +61,7 @@ function onEditMeme(imgId) {
     elImgContainer.style.display = 'none';
     elMemesContainer.style.display = 'block';
 
+    initGmeme(imgId);
     drawImg(imgId);
 }
 
