@@ -216,11 +216,15 @@ a.download-meme {
         margin: 30px;
     }
     .meme-editor {
-        display: grid;
         grid-template-columns: repeat(2, 300px);
         grid-template-rows: repeat(2, 300px);
-        gap: 10px;
     }
+
+    .canvas-container {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+    }
+    
     .control-box-container {
         grid-column: 1 / 2;
         grid-row: 2 / 3;
