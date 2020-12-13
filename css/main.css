@@ -213,7 +213,7 @@ footer {
 
 /* MOBILE */
 
-@media (max-width: 350px) {
+@media (max-width: 850px) {
     img.logo {
         width: 150px;
         height: 40px;
